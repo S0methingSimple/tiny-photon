@@ -15,7 +15,7 @@ public class DownloadController {
     private PhotonService photonService;
 
     @GetMapping("/download/{id}")
-    public ResponseEntity<byte[]> download(@PathVariable String id) {
+    public ResponseEntity<byte[]> download(@PathVariable Integer id) {
 
         Photo photo = photonService.get(id);
         if (photo == null) throw new ResponseStatusException(HttpStatus.NOT_FOUND);

@@ -1,7 +1,11 @@
 package com.something.simple.tiny.photon.service;
 
 import com.something.simple.tiny.photon.model.Photo;
+import com.something.simple.tiny.photon.repository.PhotonRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.Collection;
 import java.util.HashMap;
@@ -11,29 +15,28 @@ import java.util.UUID;
 @Service
 public class PhotonService {
 
-    private Map<String, Photo> db = new HashMap<>() {{
-        put("1", new Photo("1", "hello.jpg"));
-    }};
+    @Autowired
+    private PhotonRepository photonRepository;
 
-    public Collection<Photo> get() {
-        return db.values();
+    public Iterable<Photo> get() {
+        return photonRepository.findAll();
     }
 
-    public Photo get(String id) {
-        return db.get(id);
+    public Photo get(Integer id) {
+        return photonRepository.findById(id).orElse(null);
     }
 
-    public Photo remove(String id) {
-        return db.remove(id);
+    public void remove(Integer id) {
+        photonRepository.deleteById(id);
     }
 
     public Photo save(String fileName, String contentType, byte[] data) {
         Photo photo = new Photo();
-        photo.setId(UUID.randomUUID().toString());
         photo.setFileName(fileName);
         photo.setData(data);
         photo.setContentType(contentType);
-        db.put(photo.getId(), photo);
+
+        photonRepository.save(photo);
         return photo;
     }
 }

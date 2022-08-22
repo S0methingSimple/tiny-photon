@@ -34,21 +34,20 @@ public class PhotonController {
     }
 
     @GetMapping("/photo")
-    public Collection<Photo> get() {
+    public Iterable<Photo> get() {
         return photonService.get();
     }
 
     @GetMapping("/photo/{id}")
-    public Photo get(@PathVariable String id) {
+    public Photo get(@PathVariable Integer id) {
         Photo photo = photonService.get(id);
         if (photo == null) throw new ResponseStatusException(HttpStatus.NOT_FOUND);
         return photo;
     }
 
     @DeleteMapping("/photo/{id}")
-    public void delete(@PathVariable String id) {
-        Photo photo = photonService.remove(id);
-        if (photo == null) throw new ResponseStatusException(HttpStatus.NOT_FOUND);
+    public void delete(@PathVariable Integer id) {
+        photonService.remove(id);
     }
 
 //    @PostMapping("/photo-old")
