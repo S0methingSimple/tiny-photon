@@ -1,0 +1,3 @@
+# Spring Boot Photo storage API
+- Nothing much to see here...
+- Could be broken > <
