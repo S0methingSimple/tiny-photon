@@ -1,4 +1,4 @@
-package com.something.simple.tiny.photon;
+package com.something.simple.tiny.photon.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 

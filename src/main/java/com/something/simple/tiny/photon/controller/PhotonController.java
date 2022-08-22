@@ -1,17 +1,15 @@
-package com.something.simple.tiny.photon;
+package com.something.simple.tiny.photon.controller;
 
+import com.something.simple.tiny.photon.model.Photo;
+import com.something.simple.tiny.photon.service.PhotonService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.server.ResponseStatusException;
 
-import javax.validation.Valid;
 import java.io.IOException;
 import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.UUID;
 
 @RestController
 public class PhotonController {

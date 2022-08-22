@@ -1,5 +1,7 @@
-package com.something.simple.tiny.photon;
+package com.something.simple.tiny.photon.controller;
 
+import com.something.simple.tiny.photon.model.Photo;
+import com.something.simple.tiny.photon.service.PhotonService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.*;
 import org.springframework.web.bind.annotation.*;

@@ -1,5 +1,6 @@
-package com.something.simple.tiny.photon;
+package com.something.simple.tiny.photon.service;
 
+import com.something.simple.tiny.photon.model.Photo;
 import org.springframework.stereotype.Service;
 
 import java.util.Collection;
